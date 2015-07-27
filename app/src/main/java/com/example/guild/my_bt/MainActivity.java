@@ -83,13 +83,7 @@ public class MainActivity extends ActionBarActivity {
                 Toast.makeText(getApplicationContext(),"Bluetooth is already enable", Toast.LENGTH_LONG).show();
             }
 
-            onBtn.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    turnOn(v);
-
-                }
-            });
+            onBtn.setOnClickListener(v -> turnOn(v));
 
             offBtn.setOnClickListener(new OnClickListener() {
                 @Override
@@ -323,7 +317,7 @@ public class MainActivity extends ActionBarActivity {
 
             } catch (IOException connectException) {
                 // Unable to connect; close the socket and get out
-                Log.d("test","can't connect");
+                Log.d("test","can't connect", connectException);
                 try {
                     mmSocket.close();
                 } catch (IOException closeException) { }
